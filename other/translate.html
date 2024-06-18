@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const requestOptions = {
+  method: "GET",
+  redirect: "follow"
+};
+
+fetch("rapidapi.com", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
+    </script>
+    
+    <script>
+        const axios = require('axios');
+
+const encodedParams = new URLSearchParams();
+encodedParams.set('q', 'English is hard, but detectably so');
+
+const options = {
+  method: 'POST',
+  url: 'https://google-translate1.p.rapidapi.com/language/translate/v2/detect',
+  headers: {
+    'content-type': 'application/x-www-form-urlencoded',
+    'Accept-Encoding': 'application/gzip',
+    'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+    'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
+  },
+  data: encodedParams,
+};
+
+try {
+	const response = await axios.request(options);
+	console.log(response.data);
+} catch (error) {
+	console.error(error);
+}
+    </script>
+</body>
+</html>
